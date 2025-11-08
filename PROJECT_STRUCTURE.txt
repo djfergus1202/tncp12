@@ -1,0 +1,135 @@
+📁 BioMed Research Suite - Render Deployment Structure
+=======================================================
+
+biomed-research-suite/
+│
+├── 📄 server.js                    ⭐ MAIN SERVER FILE
+│   │
+│   ├── Express app configuration
+│   ├── CORS middleware
+│   ├── Static file serving (public/)
+│   ├── API Routes:
+│   │   ├── GET  /api/health
+│   │   ├── GET  /api/docking/proteins
+│   │   ├── GET  /api/docking/ligands
+│   │   ├── POST /api/docking/run
+│   │   ├── GET  /api/cells/cell-lines
+│   │   ├── POST /api/cells/simulate
+│   │   └── POST /api/predict/drug-efficacy
+│   │
+│   └── Server listening on PORT (from env or 10000)
+│
+├── 📄 package.json                 📦 DEPENDENCIES
+│   │
+│   ├── Dependencies:
+│   │   ├── express: ^4.18.2
+│   │   └── cors: ^2.8.5
+│   │
+│   ├── Scripts:
+│   │   ├── start: "node server.js"
+│   │   └── dev: "node server.js"
+│   │
+│   └── Engines:
+│       └── node: "18.x"
+│
+├── 📁 public/                      🎨 FRONTEND
+│   │
+│   └── 📄 index.html
+│       │
+│       ├── Beautiful gradient UI
+│       ├── API test buttons
+│       ├── Real-time status check
+│       └── Results display
+│
+├── 📄 render.yaml                  ⚙️  RENDER CONFIG
+│   │
+│   ├── Service type: web
+│   ├── Build: npm install
+│   ├── Start: npm start
+│   └── Health check: /api/health
+│
+├── 📄 .gitignore                   🚫 GIT EXCLUSIONS
+│   │
+│   ├── node_modules/
+│   ├── .env
+│   ├── *.log
+│   └── .DS_Store
+│
+├── 📄 README.md                    📚 DOCUMENTATION
+│   │
+│   ├── Deployment instructions
+│   ├── API documentation
+│   ├── Local development guide
+│   └── Troubleshooting
+│
+├── 📄 DEPLOY_CHECKLIST.txt        ✅ QUICK START
+│   │
+│   ├── Step-by-step deployment
+│   ├── Key differences from Vercel
+│   └── Troubleshooting tips
+│
+└── 📄 VERCEL_VS_RENDER.md         🔄 COMPARISON
+    │
+    ├── Architecture changes
+    ├── Code differences
+    ├── Cost comparison
+    └── Migration guide
+
+=======================================================
+
+🚀 DEPLOYMENT FLOW:
+
+1. Local Development
+   └── npm install
+       └── npm start
+           └── http://localhost:10000
+
+2. Git Repository
+   └── git init
+       └── git add .
+           └── git commit
+               └── git push to GitHub
+
+3. Render Deployment
+   └── Connect GitHub repo
+       └── Auto-detect render.yaml
+           └── Build: npm install
+               └── Start: npm start
+                   └── Deploy: https://your-app.onrender.com
+
+4. Production
+   └── API: https://your-app.onrender.com/api/*
+       └── Frontend: https://your-app.onrender.com/
+
+=======================================================
+
+⚡ KEY FEATURES:
+
+✅ RESTful API with Express
+✅ Molecular docking simulation
+✅ Cell growth modeling
+✅ Drug efficacy prediction
+✅ Beautiful web interface
+✅ CORS enabled
+✅ Health check endpoint
+✅ Production-ready
+✅ Easy to deploy
+✅ Well documented
+
+=======================================================
+
+🎯 WHAT CHANGED FROM VERCEL:
+
+❌ api/index.js (serverless function)
+✅ server.js (traditional Express server)
+
+❌ vercel.json
+✅ render.yaml
+
+❌ Automatic serverless scaling
+✅ Traditional web service
+
+❌ Vercel CLI deployment
+✅ GitHub → Render dashboard deployment
+
+Everything else stays the same! 🎉
